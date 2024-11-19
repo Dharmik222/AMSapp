@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Sync Obituary Data</h1>
+    
+    <!-- Button to trigger the sync -->
+    <form method="POST" action="{% url 'sync_data' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Sync Data</button>
+    </form>
+
+    <!-- Messages -->
+    {% if messages %}
+        <div class="mt-4">
+            {% for message in messages %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

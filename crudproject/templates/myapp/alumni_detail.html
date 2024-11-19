@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h2>Alumni Detail</h2>
+  <p><strong>Name:</strong> {{ alumni.full_name }}</p>
+  <p><strong>University Affiliation:</strong> {{ alumni.university_affiliation }}</p>
+  <p><strong>Date of Death:</strong> {{ alumni.date_of_death }}</p>
+  <p><strong>Obituary URL:</strong> <a href="{{ alumni.obituary_url }}" target="_blank">{{ alumni.obituary_url }}</a></p>
+  <p><strong>Family Information:</strong> {{ alumni.family_info }}</p>
+  <p><strong>Funeral Details:</strong> {{ alumni.funeral_details }}</p>
+  <p><strong>Notable Information:</strong> {{ alumni.notable_info }}</p>
+
+  <br>
+  <a href="{% url 'alumni_list' %}">Back to Alumni List</a>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Alumni Dashboard</h1>
+
+    <!-- Success messages -->
+    {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>University Affiliation</th>
+                <th>Date of Death</th>
+                <th>Notable Info</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alum in alumni %}
+            <tr>
+                <td>{{ alum.full_name }}</td>
+                <td>{{ alum.university_affiliation }}</td>
+                <td>{{ alum.date_of_death }}</td>
+                <td>{{ alum.notable_info }}</td>
+                <td>
+                    <a href="{% url 'alumni_detail' alum.pk %}" class="btn btn-info">View</a>
+                    <a href="{% url 'alumni_update' alum.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'alumni_delete' alum.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
