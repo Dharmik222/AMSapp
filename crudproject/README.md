@@ -1,3 +1,0 @@
-# AMS
-# AMSapp
-# AMSapp
